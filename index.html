@@ -272,18 +272,6 @@
             const [loadingStreams, setLoadingStreams] = useState(false);
             const [detailChart, setDetailChart] = useState(null);
 
-            useEffect(() => {
-                // Check for OAuth callback
-                const urlParams = new URLSearchParams(window.location.search);
-                const code = urlParams.get('code');
-                
-                if (code && clientSecret) {
-                    exchangeToken(code);
-                }
-            }, [clientSecret]);
-
-            };
-
             const handleAuth = () => {
                 if (!clientId || !clientSecret) {
                     setError('Please enter both Client ID and Client Secret');
